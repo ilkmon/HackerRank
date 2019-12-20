@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProblemSolving {
-    public class TwoDArrayDSProblem {
+     class TwoDArrayDSProblem {
         public  int TwoDArrayDS(int[][] arr) {
 
             int rowLimit = arr.Length - 3; // 3 indexli(4. satır) dan daha aşağıda sol üst köşesi olan bir saat olamayacağından limitliyoruz.

@@ -50,11 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TwoDArrayDSProblem.cs" />
-    <Compile Include="AVeryBigSumProblem.cs" />
-    <Compile Include="PlusMinusProblem.cs" />
-    <Compile Include="SimpleArraySumProblem.cs" />
-    <Compile Include="CompareTheTripletsProblem.cs" />
+    <Compile Include="InterviewPreparationKit\ArraysLeftRotationProblem.cs" />
+    <Compile Include="InterviewPreparationKit\RunProblemSolvingMethods.cs" />
+    <Compile Include="ProblemSolving\RunProblemSolvingMethods.cs" />
+    <Compile Include="ProblemSolving\TwoDArrayDSProblem.cs" />
+    <Compile Include="ProblemSolving\AVeryBigSumProblem.cs" />
+    <Compile Include="ProblemSolving\PlusMinusProblem.cs" />
+    <Compile Include="ProblemSolving\SimpleArraySumProblem.cs" />
+    <Compile Include="ProblemSolving\CompareTheTripletsProblem.cs" />
     <Compile Include="MainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +65,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

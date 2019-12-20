@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProblemSolving {
-    public static class PlusMinusProblem {
+    public class PlusMinusProblem {
         /// <summary>
         /// Pozitif, negatif ve 0 sayısı adetlerinin tüm sayılara opranını ekrana bastırması istenmiş.
         /// Bunu yaparken Noktadan sonra 6 hane olması gerektiği belirtilmiş.
         /// </summary>
         /// <param name="arr"></param>
-        public static void plusMinus(int[] arr) {
+        public static void PlusMinus(int[] arr) {
             float negativeElementsCount = 0, positiveElementsCount = 0, zeroElementsCount = 0;
             float arrayLength = arr.Length;
 

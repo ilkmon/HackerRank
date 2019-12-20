@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProblemSolving {
-    public static class AVeryBigSumProblem {
+    public class AVeryBigSumProblem {
 
-        public static long aVeryBigSum(long[] ar) {
+        public static long AVeryBigSum(long[] ar) {
             long result = 0;
             foreach(long element in ar) {
                 result = result + element;

@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProblemSolving {
-    public static class SimpleArraySumProblem {
+    public class SimpleArraySumProblem {
         
         
-        public static int simpleArraySum(int[] ar) {
+        public static int SimpleArraySum(int[] ar) {
             int sum = 0;
 
             foreach(int i in ar) {

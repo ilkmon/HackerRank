@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProblemSolving {
-    public static class CompareTheTripletsProblem {
+    public class CompareTheTripletsProblem {
 
-        public static List<int> compareTriplets(List<int> a, List<int> b) {
+        public static List<int> CompareTriplets(List<int> a, List<int> b) {
             List<int> result = new List<int> { 0, 0 };
             //   result.Add(0);//a Liste oluştururken parantez ile ekeleme yapılabiliyormuş.
             //   result.Add(0);//b  Liste oluştururken parantez ile ekeleme yapılabiliyormuş.
