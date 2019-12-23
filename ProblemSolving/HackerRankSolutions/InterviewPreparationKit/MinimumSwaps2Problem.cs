@@ -12,9 +12,7 @@ namespace InterviewPreparationKit {
             int swapCounter = 0;
             int firstValue = arr.Min(); //Arrayin ardışık sayılardan oluştuğu bilgisi verilmiş, Bu nedenle başa gelecek sayıyı bilebiliyoruz.
             int arrayLength = arr.Length;
-
             List<int> differences = new List<int>();
-
 
             for(int i = 0; i < arrayLength; i++) {
                 differences.Add(arr[i] - (firstValue + i));
@@ -27,8 +25,6 @@ namespace InterviewPreparationKit {
                     swapCounter++;
                     SwapByIndexes(arr, i, (i + differences[i]));
                 }
-
-
             }
 
             for(int i = 0; i < arrayLength - 1; i++) {
@@ -42,7 +38,6 @@ namespace InterviewPreparationKit {
             }
             return swapCounter;
         }
-
 
         public static void SwapBy1stElementIndex_2ndElementValue(int[] arr, int firsElement, int secondElementsValue) {
             int secondElement = FindElementIndexByValue(arr, secondElementsValue, firsElement);
@@ -66,38 +61,5 @@ namespace InterviewPreparationKit {
             }
             return -1;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
