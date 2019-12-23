@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProblemSolving {
+namespace InterviewPreparationKit {
     static class RunInterviewPreparationKitMethods {
         public static void Run() {
             RunArraysLeftRotation();
+            RunMinimumSwaps2();
         }
 
         public static void RunArraysLeftRotation() {
@@ -27,6 +28,15 @@ namespace ProblemSolving {
                 Console.Write(element + " ");
             }
             Console.WriteLine();
+        }
+        public static void RunMinimumSwaps2() {
+            int[] arr = { 1, 3, 5, 2, 4, 6, 7 };
+            //beklenen cevap 3
+            Console.Write("Minimum Swaps 2 Output: ");
+            Console.WriteLine(MinimumSwaps2Problem.MinimumSwaps(arr).ToString());
+
+
+
         }
 
     }

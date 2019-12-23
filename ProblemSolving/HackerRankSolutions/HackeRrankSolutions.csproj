@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InterviewPreparationKit\ArraysLeftRotationProblem.cs" />
+    <Compile Include="InterviewPreparationKit\MinimumSwaps2Problem.cs" />
     <Compile Include="InterviewPreparationKit\RunProblemSolvingMethods.cs" />
     <Compile Include="ProblemSolving\RunProblemSolvingMethods.cs" />
     <Compile Include="ProblemSolving\TwoDArrayDSProblem.cs" />
