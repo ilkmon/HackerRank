@@ -1,4 +1,5 @@
 ﻿using InterviewPreparationKit;
+using ProblemSolving.InterviewPreparationKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace InterviewPreparationKit {
         public static void Run() {
             RunArraysLeftRotation();
             RunMinimumSwaps2();
+            RunHashTablesRansomNote();
+            
         }
 
         public static void RunArraysLeftRotation() {
@@ -38,6 +41,10 @@ namespace InterviewPreparationKit {
 
 
         }
-
+        public static void RunHashTablesRansomNote() {
+            string[] magazine = { "give", "me", "one", "grand", "today", "night" };
+            string[] note = { "give", "one", "grand", "today" };
+            HashTablesRansomNoteProblem.CheckMagazine(magazine,note);
+        }
     }
 }
