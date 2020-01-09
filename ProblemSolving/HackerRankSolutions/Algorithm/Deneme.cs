@@ -71,8 +71,6 @@ namespace ProblemSolving.Algorithm {
         }
         public static string arrange(string sentence) {
 
-            //Deneme.arrange("1 One, 2 Two, 3 Three i.s good.");
-
             String lowerCaseSentence = sentence.ToLower(); //Gelen cümlenin tamamı lowercase'e çevrilir.
             String[] words = Regex.Split(lowerCaseSentence, @"[\s\t\n\b\e\,\.]+"); //Regex ile boşluk, tab, newline, backspace, empty nokta ve virgüller ayraç kabul edilerek split edildi.
 
@@ -116,6 +114,33 @@ namespace ProblemSolving.Algorithm {
             //Soruda cümlenin sonunda nokta istenmiş son olarak onu ekleyip dönüşü gerçekleştirdim.
             result = result + ".";
             return result;
+
+        }
+        public static int[] jobOffers(int[] scores, int[] lowerLimits, int[] upperLimits) {
+
+            //Sort edilip for ile de yapılabilir.
+            //Kod bu haliyle 9- 13 arası testlerde hata vermektedir.
+
+
+            List<int> matchedCandidatesCountList = new List<int>();
+            List<int> scoresList = new List<int>(scores); // Liste yerine yukarıdaki scores kullanılabilir. Dönüştürme işlemine normalde gerek yok.
+
+
+            for(int i = 0; i < lowerLimits.Length; i++) { //Limit sayısı kadar dönecek
+
+                int matchedCandidatesCount = 0;
+                int lowerLimit = lowerLimits[i];
+                int upperLimit = upperLimits[i];
+                if(upperLimit >= lowerLimit) {  //Bu sorgu kaç adet arada sayı olduğunu getiriyor.
+                    matchedCandidatesCount = scoresList.Where(score => {
+                        return score >= lowerLimit && score <= upperLimit;
+                    }).Count();
+                }
+                matchedCandidatesCountList.Add(matchedCandidatesCount);
+            }
+
+            return matchedCandidatesCountList.ToArray();
+
 
         }
     }
