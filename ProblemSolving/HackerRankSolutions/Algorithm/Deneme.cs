@@ -57,15 +57,16 @@ namespace ProblemSolving.Algorithm {
         }
         public int isPrime(long n) {
 
-            int maxDivisor = 1;
+            int minDivisor = 1;
 
-            for(long i = n - 1; i > 1; i--) {
-                if(n % i == 0) {
-                    maxDivisor = (int)i;
+            for(int i = 2; i < n && i < int.MaxValue; i++) {
+                if(n % i == 0 && i != n) {
+                    minDivisor = i;
                     break;
                 }
             }
-            return maxDivisor;
+
+            return minDivisor;
         }
     }
 }
