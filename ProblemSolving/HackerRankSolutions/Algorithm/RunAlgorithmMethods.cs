@@ -12,12 +12,7 @@ namespace ProblemSolving.Algorithm {
 
         }
 
-        public static void RunLuckBalance() {
-            int k = 3;
-            int[][] contests;
-            contests[]
-            LuckBalanceProblem.LuckBalance(k, contests);
-        }
+       
 
 
 

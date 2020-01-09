@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ProblemSolving.Algorithm {
-    class Deneme {
+    public class Deneme {
 
 
         public int CountNonUniqueElements(List<int> numbers) {
@@ -67,6 +68,55 @@ namespace ProblemSolving.Algorithm {
             }
 
             return minDivisor;
+        }
+        public static string arrange(string sentence) {
+
+            //Deneme.arrange("1 One, 2 Two, 3 Three i.s good.");
+
+            String lowerCaseSentence = sentence.ToLower(); //Gelen cümlenin tamamı lowercase'e çevrilir.
+            String[] words = Regex.Split(lowerCaseSentence, @"[\s\t\n\b\e\,\.]+"); //Regex ile boşluk, tab, newline, backspace, empty nokta ve virgüller ayraç kabul edilerek split edildi.
+
+
+            /*
+             Bildiğimiz select yapısı yerler farklı biraz.
+             words arrayinin değişkenlerini word adında al.
+             ordeby ile uzunluklarına göre sırala
+             tümünü selectleyip ekle.
+
+             */
+            IOrderedEnumerable<string> arrangedWords = from word in words
+                                                       orderby word.Length
+                                                       select word;
+            string result = ""; //Result boş atanır.
+
+            foreach(var word in arrangedWords) {
+
+                if(word != "") {
+                    if(result == "") {
+                        //Eğer result stringi boş ise gelen kelime ilk kelime demektir.
+                        //İlk kelime büyük harfle başlamalı
+                        string firstString = word;
+                        char firstChar = firstString.First();
+                        firstChar = char.ToUpper(firstChar);
+                        firstString = firstString.Remove(0, 1);
+                        firstString = firstChar + firstString;
+                        result = firstString;
+                        //Eğer result a eşitlememiş ve contiune kullanmamış olsaydık 
+                        //İlk kelime öncesinde aşağıdaki result +" " şeklindeki ifadeden dolayı cümle başında boşluk oluşacaktı.
+                        //Bu nedenle result içeriğine ilk kelimeyi yazdık ve continue ile foreach döngüsünün bu işlemi burada bırakarak bir sonraki kelimeden
+                        //devam etmesini sağladım.
+                        continue;
+
+                    }
+
+                    result = result + " " + word;
+                }
+            }
+
+            //Soruda cümlenin sonunda nokta istenmiş son olarak onu ekleyip dönüşü gerçekleştirdim.
+            result = result + ".";
+            return result;
+
         }
     }
 }

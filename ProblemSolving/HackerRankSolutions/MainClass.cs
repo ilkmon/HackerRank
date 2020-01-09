@@ -2,16 +2,19 @@
 using InterviewPreparationKit;
 using System;
 using System.Collections.Generic;
-
+using ProblemSolving.Algorithm;
 
 namespace HackerRankSolutions {
     class MainClass {
 
         static void Main() {
-            RunProblemSolvingMethods.Run();
+            /*RunProblemSolvingMethods.Run();
             RunInterviewPreparationKitMethods.Run();
+            */
 
-            Console.WriteLine("Press a button to exit. ");
+            Deneme.arrange("One,  Two,  Three i.s good.");
+
+            Console.WriteLine("Press a button to exit.");
             Console.ReadLine(); //Ekranın hemen kapanmaması için.
         }
 
