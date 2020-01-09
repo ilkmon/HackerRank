@@ -9,10 +9,19 @@ using System.Threading.Tasks;
 namespace InterviewPreparationKit {
     static class RunInterviewPreparationKitMethods {
         public static void Run() {
+
             RunArraysLeftRotation();
             RunMinimumSwaps2();
             RunHashTablesRansomNote();
-            
+            RunTwoStringsProblem();
+            RunSherlockAndAnagramsProblem();
+            char[] c1 = { 'a', 'b', 'c' };
+            char[] c2 = { 'b', 'a', 'c','d' };
+            foreach(var item in c1.Intersect(c2)) {
+                Console.WriteLine(item);
+            }
+           
+
         }
 
         public static void RunArraysLeftRotation() {
@@ -44,7 +53,19 @@ namespace InterviewPreparationKit {
         public static void RunHashTablesRansomNote() {
             string[] magazine = { "give", "me", "one", "grand", "today", "night" };
             string[] note = { "give", "one", "grand", "today" };
-            HashTablesRansomNoteProblem.CheckMagazine(magazine,note);
+            HashTablesRansomNoteProblem.CheckMagazine(magazine, note);
+        }
+        public static void RunTwoStringsProblem() {
+            string s1 = "hello";
+            string s2 = "world";
+            Console.WriteLine("Two Strings Problem Output: " + TwoStringsProblem.TwoStrings(s1, s2));
+
+
+        }
+        public static void RunSherlockAndAnagramsProblem() {
+            string s = "ifailuhkqq";
+            var sherlocAndAnagramsProblem = new SherlockAndAnagramsProblem();
+            Console.WriteLine("Sharlock And Anagrams Problem Output: " + sherlocAndAnagramsProblem.SherlockAndAnagrams(s));
         }
     }
 }

@@ -50,10 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\Deneme.cs" />
+    <Compile Include="Algorithm\LuckBalanceProblem.cs" />
+    <Compile Include="Algorithm\RunAlgorithmMethods.cs" />
     <Compile Include="InterviewPreparationKit\ArraysLeftRotationProblem.cs" />
     <Compile Include="InterviewPreparationKit\HashTablesRansomNote.cs" />
     <Compile Include="InterviewPreparationKit\MinimumSwaps2Problem.cs" />
     <Compile Include="InterviewPreparationKit\RunProblemSolvingMethods.cs" />
+    <Compile Include="InterviewPreparationKit\SherlockAndAnagramsProblem.cs" />
+    <Compile Include="InterviewPreparationKit\TwoStringsProblem.cs" />
     <Compile Include="ProblemSolving\RunProblemSolvingMethods.cs" />
     <Compile Include="ProblemSolving\TwoDArrayDSProblem.cs" />
     <Compile Include="ProblemSolving\AVeryBigSumProblem.cs" />
