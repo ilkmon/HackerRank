@@ -221,20 +221,74 @@ namespace ProblemSolving.Algorithm {
         }
 
         public static int priceCheck(List<string> products, List<float> productPrices, List<string> productSold, List<float> soldPrice) {
-            //OK
-            int wrong = 0;
+
+            int countOfWrongPricedItemSolds = 0;
+
             Dictionary<string, float> priceList = new Dictionary<string, float>();
+
+            //Ürün adları benzersiz olacağından Dictionary ile çözülebiliyor.
+            //Dictionarylerde Keyler benzersiz olmalı.
+
             for(int i = 0; i < products.Count; i++) {
                 priceList.Add(products.ElementAt(i), productPrices.ElementAt(i));
+                //tüm ürünler dictionary içine priceList(ürünadı, ürünFiyatı) şeklinde dolduruldu.
             }
             for(int i = 0; i < productSold.Count; i++) {
+                //Bu for ile her satılan ürün tek tek alındı.
                 if(priceList[productSold.ElementAt(i)] != soldPrice.ElementAt(i)) {
-                    wrong++;
+                    //PiceList[ürün ismi] bize ürünün fiyatını getirecektir bu aşamada.
+                    //ProductSold içerisinde i indisli ürünün adını priceList ürün adı ile fiyat bilgisinin satış fiyatı bilgisine eşitliği kontrol edildi.
+                    //Hatalı ile hata sayısı 1 arttırıldı.
+                    countOfWrongPricedItemSolds++;
                 }
             }
-            return wrong;
+            return countOfWrongPricedItemSolds;
+        }
+        public static List<string> missingWords(string s, string t) {
+            //TestCase 7 de runtime error alıyor.
+            List<string> AllWords = new List<string>(Regex.Split(s, @"[\s]+")); //Kelimelerin space ile bölündüğü, başka herhangi bir bölme işareti olmadığı söylenmiş.
+            List<string> SubstringWords = new List<string>(Regex.Split(t, @"[\s]+"));
+            if(AllWords.Count == SubstringWords.Count) { return AllWords; }
+
+            int AllWordIndex = 0;
+            //Eğer bir kelimeyi listeden sildiysek gerideki kelimelere bakmamak gerekiyor.
+            //Bu nedenle her döngüde sıfırlanmayan bir Index'e ihtiyaç var.
+
+            foreach(string lookingFor in SubstringWords) {
+                //Tüm substringlerin Allwords içerisinde olduğu garanti edilmiş.
+                //Tüm substringleri lookingFor olarak alıp, Allwords listesinin devamında olup olmadığını kontrol ediyorum.
+                for(; AllWordIndex < AllWords.Count; AllWordIndex++) {
+
+                    if(AllWords.ElementAt(AllWordIndex).Equals(lookingFor)) {
+                        //Eğer ındexteki eleman aradığım eleman ise
+                        //Bu indexteki elemanı siliyorum. Eleman silindiğinde bir sonraki bakacağım index aynı index olmalı.(Eleman sayısı 1 azaldığından.)
+                        //Break index sayısını arttırmadan for döngüsünün kırılmasını ve sonraki substringin alınmasını sağlıyor.
+                        AllWords.RemoveAt(AllWordIndex);
+                        break;
+                    }
+                }
+            }
+            //En son substringlerden temizlenmiş olarak AllWords return ediliyor.
+            return AllWords;
+        }
+
+        public static string dnaComplement(string s) {
+            string result = "";
+            foreach(char Ch in s.Reverse()) {
+                if(Ch == 'A') {
+                    result += 'T';
+                } else if(Ch == 'T') {
+                    result += 'A';
+                } else if(Ch == 'G') {
+                    result += 'C';
+                } else if(Ch == 'C') {
+                    result += 'G';
+                }
+            }
+            return result;
         }
     }
+
 
 
 }
