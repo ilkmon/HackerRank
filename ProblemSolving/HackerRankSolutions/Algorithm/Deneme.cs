@@ -87,6 +87,7 @@ namespace ProblemSolving.Algorithm {
                                                        select word;
             string result = ""; //Result boş atanır.
 
+
             foreach(var word in arrangedWords) {
 
                 if(word != "") {
@@ -141,6 +142,10 @@ namespace ProblemSolving.Algorithm {
 
             return matchedCandidatesCountList.ToArray();
 
+
+        }
+
+        public static List<int> arrangeEquipments(List<int> equipments) {
 
         }
     }
