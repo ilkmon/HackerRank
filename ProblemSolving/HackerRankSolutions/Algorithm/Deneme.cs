@@ -96,8 +96,9 @@ namespace ProblemSolving.Algorithm {
                         //İlk kelime büyük harfle başlamalı
                         string firstString = word;
                         char firstChar = firstString.First();
-                        firstChar = char.ToUpper(firstChar);
                         firstString = firstString.Remove(0, 1);
+                        firstChar = char.ToUpper(firstChar);
+
                         firstString = firstChar + firstString;
                         result = firstString;
                         //Eğer result a eşitlememiş ve contiune kullanmamış olsaydık 
@@ -132,6 +133,7 @@ namespace ProblemSolving.Algorithm {
                 int matchedCandidatesCount = 0;
                 int lowerLimit = lowerLimits[i];
                 int upperLimit = upperLimits[i];
+
                 if(upperLimit >= lowerLimit) {  //Bu sorgu kaç adet arada sayı olduğunu getiriyor.
                     matchedCandidatesCount = scoresList.Where(score => {
                         return score >= lowerLimit && score <= upperLimit;
@@ -147,6 +149,92 @@ namespace ProblemSolving.Algorithm {
 
         public static List<int> arrangeEquipments(List<int> equipments) {
 
+            //Çözülemedi!
+            List<int> arrangedEquipmentsList = new List<int>();
+            equipments.Sort();
+            int maxValue = equipments.Max();
+            arrangedEquipmentsList.Add(maxValue);
+            equipments.Remove(maxValue);
+            int n = 2;
+            int minValue;
+            while(equipments.Count() > 0) {
+                if(n % 2 == 0) {
+                    maxValue = equipments.Max();
+                    arrangedEquipmentsList.Add(maxValue);
+                    equipments.Remove(maxValue);
+                } else {
+                    minValue = equipments.Min();
+                    arrangedEquipmentsList.Add(maxValue);
+                    equipments.Remove(maxValue);
+                }
+
+                n++;
+            }
+
+            return arrangedEquipmentsList;
+        }
+
+        public int Beauty(int[] a, int n) {
+            // arrangeEquipments için soruda tanımlanan en yüksek değeri alması istenen fonksiyon.
+            if(n == 1) {
+                return a[n];
+            } else {
+                if(n % 2 == 1) {
+                    //n MOD 2 =  1 OLMASI DURUMU
+                    return Beauty(a, n - 1) * (1 / a[n]);
+                } else {
+                    //n MOD 2 =  0 OLMASI DURUMU
+                    return Beauty(a, n - 1) * a[n];
+                }
+
+            }
+        }
+
+        public static string isPossible(int a, int b, int c, int d) {
+            coordinates goal = new coordinates(c, d);
+            coordinates point = new coordinates(a, b);
+
+            int targettedXDifference = goal.X - point.X;
+            int targettedYDifference = goal.Y - point.Y;
+            return "notcompletedd";
+
+
+        }
+        public class coordinates {
+            int x, y;
+
+            public coordinates(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+            public void moveOnX() {
+                this.x = this.x + this.y;
+            }
+            public void moveOnY() {
+                this.y = this.y + this.x;
+            }
+
+
+
+            public int X { get => x; set => x = value; }
+            public int Y { get => y; set => y = value; }
+        }
+
+        public static int priceCheck(List<string> products, List<float> productPrices, List<string> productSold, List<float> soldPrice) {
+            //OK
+            int wrong = 0;
+            Dictionary<string, float> priceList = new Dictionary<string, float>();
+            for(int i = 0; i < products.Count; i++) {
+                priceList.Add(products.ElementAt(i), productPrices.ElementAt(i));
+            }
+            for(int i = 0; i < productSold.Count; i++) {
+                if(priceList[productSold.ElementAt(i)] != soldPrice.ElementAt(i)) {
+                    wrong++;
+                }
+            }
+            return wrong;
         }
     }
+
+
 }
