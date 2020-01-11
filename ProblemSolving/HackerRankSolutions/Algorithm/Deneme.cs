@@ -146,7 +146,6 @@ namespace ProblemSolving.Algorithm {
 
 
         }
-
         public static List<int> arrangeEquipments(List<int> equipments) {
 
             //Çözülemedi!
@@ -249,7 +248,6 @@ namespace ProblemSolving.Algorithm {
             List<string> AllWords = new List<string>(Regex.Split(s, @"[\s]+")); //Kelimelerin space ile bölündüğü, başka herhangi bir bölme işareti olmadığı söylenmiş.
             List<string> SubstringWords = new List<string>(Regex.Split(t, @"[\s]+"));
             if(AllWords.Count == SubstringWords.Count) { return AllWords; }
-
             int AllWordIndex = 0;
             //Eğer bir kelimeyi listeden sildiysek gerideki kelimelere bakmamak gerekiyor.
             //Bu nedenle her döngüde sıfırlanmayan bir Index'e ihtiyaç var.
@@ -286,6 +284,50 @@ namespace ProblemSolving.Algorithm {
                 }
             }
             return result;
+        }
+        static int makeAnagram(string a, string b) {
+            // https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+
+            List<char> charsOfA = new List<char>();
+            List<char> charsOfB = new List<char>();
+
+            charsOfA = a.ToCharArray().ToList();
+            charsOfB = b.ToCharArray().ToList();
+
+
+
+            for(int i = 0; i < charsOfA.Count; i++) {
+                char element = charsOfA[i];
+                Console.WriteLine(element);
+                if(charsOfB.Contains(element)) {
+                    charsOfB.Remove(element);
+                    charsOfA.Remove(element);
+                    i--;
+                }
+
+            }
+
+            foreach(char c in charsOfA.ToArray()) {
+                Console.WriteLine(c);
+            }
+            foreach(char c in charsOfB.ToArray()) {
+                Console.WriteLine(c);
+            }
+            return charsOfA.Count() + charsOfB.Count();
+
+
+
+
+        }
+        static int alternatingCharacters(string s) {
+            string result = "";
+            char firstChar = "";
+            char secondChar
+        for(int i = 0; i < s.Length; i++) {
+
+
+            }
+
         }
     }
 
